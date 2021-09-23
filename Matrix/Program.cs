@@ -49,16 +49,15 @@ namespace Matrix
 
             // Byt ut detta anropet med dina matrisvärden, så kommer programmet att rita ut dem istället :)
 
-            string resultAssignment1 ="";
-            
-            float[,] matrisA = new float[2, 2];  //Matris A, notering: lägg till i "new float" storleken på matrisen
+         
+            float[,] matrisA = new float[2, 2];  //Matris A, notering: lägg till efter "new float" storleken på matrisen
 
             matrisA[0, 0] = 1;
             matrisA[0, 1] = 2;
             matrisA[1, 0] = 3;
             matrisA[1, 1] = 4;
 
-            float[,] matrisB = new float[2, 2];  //Matris B, notering: lägg till i "new float" storleken på matrisen
+            float[,] matrisB = new float[2, 2];  //Matris B, notering: lägg till efter "new float" storleken på matrisen
 
             matrisB[0, 0] = 3;
             matrisB[0, 1] = 4;
@@ -66,27 +65,60 @@ namespace Matrix
             matrisB[1, 1] = 6;
 
             float[,] matrisC = new float[2, 2]; //MatrisC som ska innehålla additionen mellan matris A och B
-            
-            for(int col = 0; col < 2; col++)
+
+            for (int col = 0; col < 2; col++)
             {
-                for(int row =0;row < 2; row++)
+                for (int row = 0; row < 2; row++)
                 {
-                    matrisC[row, col] = matrisA[row, col] + matrisB[row, col];
+                    matrisC[row, col] = matrisA[row, col] + matrisB[row, col];                //Identifierar kollumnenerna och raderna av matrisen
                 }
             }
-            
-            MatrixChecker.CheckAddition(matrisA[0,0], matrisA[0,1], matrisA[1, 0], matrisA[1, 1],
+
+            MatrixChecker.CheckAddition(matrisA[0, 0], matrisA[0, 1], matrisA[1, 0], matrisA[1, 1],      //Måste sätta upp HELA matris-uträkningen eller matrisen
                 matrisB[0, 0], matrisB[0, 1], matrisB[1, 0], matrisB[1, 1],
                 matrisC[0, 0], matrisC[0, 1], matrisC[1, 0], matrisC[1, 1]);
 
 
-            
+
             Draw2x2Matrix(matrisC[0, 0], matrisC[0, 1], matrisC[1, 0], matrisC[1, 1]);
 
+            Console.WriteLine();
+
+
+            float radie = 3.14f;
+            float calculation = radie * (float)Math.PI / radie;
+            float A = calculation;
+
+
+            float[,] rotationsMatris1 = new float[2, 2];          //Rotatinsmatris
+
+            rotationsMatris1[0, 0] = (float)Math.Cos(A);               //C-style cast
+            rotationsMatris1[0, 1] = (float)Math.Sin(A);
+            rotationsMatris1[1, 0] = (float)-Math.Sin(A);
+            rotationsMatris1[1, 1] = (float)Math.Cos(A);
+
+            MatrixChecker.CheckRotationMatrix(A, rotationsMatris1[0, 0], rotationsMatris1[0, 1], rotationsMatris1[1, 0], rotationsMatris1[1, 1]);
+            Draw2x2Matrix(rotationsMatris1[0, 0], rotationsMatris1[0, 1], rotationsMatris1[1, 0], rotationsMatris1[1, 1]);
+
+
+            matrisA[0, 0] = 1;
+            matrisA[0, 1] = 2;
+            matrisA[1, 0] = 3;
+            matrisA[1, 1] = 4;
+
+            matrisB[0, 0] = 5;
+            matrisB[0, 1] = 6;
+            matrisB[1, 0] = 7;
+            matrisB[1, 1] = 8;
 
 
 
             Console.ReadKey();
+
+            
+
+
+
         }
     }
 }
