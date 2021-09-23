@@ -112,6 +112,18 @@ namespace Matrix
             matrisB[1, 1] = 8;
 
 
+            float[,] matrisCMultiplication = new float[2, 2];
+
+            matrisCMultiplication[0, 0] = matrisA[0, 0] * matrisB[0, 0] + matrisA[0, 1] * matrisB[1, 0];
+            matrisCMultiplication[0, 1] = matrisA[0, 0] * matrisB[0, 1] + matrisA[0, 1] * matrisB[1, 1];
+            matrisCMultiplication[1, 0] = matrisA[1, 0] * matrisB[0, 0] + matrisA[1, 1] * matrisB[1, 0];
+            matrisCMultiplication[1, 1] = matrisA[1, 0] * matrisB[0, 1] + matrisA[1, 1] * matrisB[1, 1];
+
+   
+            MatrixChecker.CheckMultiplication(matrisC[0, 0], matrisC[0, 1], matrisC[1, 0], matrisC[1, 1], matrisA[0, 0], 
+                matrisA[0, 1], matrisA[1, 0], matrisA[1, 1], matrisB[0, 0], matrisB[0, 1], matrisB[1, 0], matrisB[1, 1]);
+
+            Draw2x2Matrix(matrisCMultiplication);
 
             Console.ReadKey();
 
