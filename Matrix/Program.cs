@@ -87,18 +87,20 @@ namespace Matrix
 
             float radie = 3.14f;
             float calculation = radie * (float)Math.PI / radie;
-            float A = calculation;
+            float result = calculation;
 
 
             float[,] rotationsMatris1 = new float[2, 2];          //Rotatinsmatris
 
-            rotationsMatris1[0, 0] = (float)Math.Cos(A);               //C-style cast
-            rotationsMatris1[0, 1] = (float)Math.Sin(A);
-            rotationsMatris1[1, 0] = (float)-Math.Sin(A);
-            rotationsMatris1[1, 1] = (float)Math.Cos(A);
+            rotationsMatris1[0, 0] = (float)Math.Cos(result);               //C-style cast "(float)" före uträkning
+            rotationsMatris1[0, 1] = (float)Math.Sin(result);
+            rotationsMatris1[1, 0] = (float)-Math.Sin(result);
+            rotationsMatris1[1, 1] = (float)Math.Cos(result);
 
-            MatrixChecker.CheckRotationMatrix(A, rotationsMatris1[0, 0], rotationsMatris1[0, 1], rotationsMatris1[1, 0], rotationsMatris1[1, 1]);
+            MatrixChecker.CheckRotationMatrix(result, rotationsMatris1[0, 0], rotationsMatris1[0, 1], rotationsMatris1[1, 0], rotationsMatris1[1, 1]);
+           
             Draw2x2Matrix(rotationsMatris1[0, 0], rotationsMatris1[0, 1], rotationsMatris1[1, 0], rotationsMatris1[1, 1]);
+
 
 
             matrisA[0, 0] = 1;
