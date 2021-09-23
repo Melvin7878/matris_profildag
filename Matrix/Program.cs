@@ -48,7 +48,41 @@ namespace Matrix
 
 
             // Byt ut detta anropet med dina matrisvärden, så kommer programmet att rita ut dem istället :)
-            Draw2x2Matrix(1.01f, 0.00f, 0.00f, 1);
+
+            string resultAssignment1 ="";
+            
+            float[,] matrisA = new float[2, 2];  //Matris A, notering: lägg till i "new float" storleken på matrisen
+
+            matrisA[0, 0] = 1;
+            matrisA[0, 1] = 2;
+            matrisA[1, 0] = 3;
+            matrisA[1, 1] = 4;
+
+            float[,] matrisB = new float[2, 2];  //Matris B, notering: lägg till i "new float" storleken på matrisen
+
+            matrisB[0, 0] = 3;
+            matrisB[0, 1] = 4;
+            matrisB[1, 0] = 5;
+            matrisB[1, 1] = 6;
+
+            float[,] matrisC = new float[2, 2]; //MatrisC som ska innehålla additionen mellan matris A och B
+            
+            for(int col = 0; col < 2; col++)
+            {
+                for(int row =0;row < 2; row++)
+                {
+                    matrisC[row, col] = matrisA[row, col] + matrisB[row, col];
+                }
+            }
+            
+            MatrixChecker.CheckAddition(matrisA[0,0], matrisA[0,1], matrisA[1, 0], matrisA[1, 1],
+                matrisB[0, 0], matrisB[0, 1], matrisB[1, 0], matrisB[1, 1],
+                matrisC[0, 0], matrisC[0, 1], matrisC[1, 0], matrisC[1, 1]);
+
+
+            
+            Draw2x2Matrix(matrisC[0, 0], matrisC[0, 1], matrisC[1, 0], matrisC[1, 1]);
+
 
 
 
